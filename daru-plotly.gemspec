@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'daru/rbploly/version'
+require 'daru/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "daru-rbploly"
-  spec.version       = Daru::Rbploly::VERSION
+  spec.name          = "daru-ploly"
+  spec.version       = Daru::Plolty::VERSION
   spec.authors       = ["Yusuke Sangenya"]
   spec.email         = ["longinus.eva@gmail.com"]
 
