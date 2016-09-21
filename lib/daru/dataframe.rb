@@ -1,5 +1,5 @@
 module Daru
-  class DataFrme
+  class DataFrame
     def plotting_library= lib
       if lib == :plotly
         @plotting_library = lib
