@@ -1,5 +1,3 @@
-require 'daru/plotting/plotly'
-
 module Daru
   class DataFrme
     def plotting_library= lib
