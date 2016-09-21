@@ -5,7 +5,7 @@ require 'daru/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "daru-ploly"
-  spec.version       = Daru::Plolty::VERSION
+  spec.version       = Daru::Plotly::VERSION
   spec.authors       = ["Yusuke Sangenya"]
   spec.email         = ["longinus.eva@gmail.com"]
 
