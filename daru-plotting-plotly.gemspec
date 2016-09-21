@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'daru/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "daru-ploly"
+  spec.name          = "daru-plotting-ploly"
   spec.version       = Daru::Plotly::VERSION
   spec.authors       = ["Yusuke Sangenya"]
   spec.email         = ["longinus.eva@gmail.com"]
