@@ -9,3 +9,9 @@
 /tmp/
 
 *.swp
+.ipython/
+*.ipynb
+.viminfo
+.local
+.bash_history
+.jupyter/
