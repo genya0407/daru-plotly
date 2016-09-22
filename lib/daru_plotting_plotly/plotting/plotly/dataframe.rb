@@ -11,7 +11,12 @@ module Daru
 
           x = self[opts[:x] || :x].to_a
           ys = if !opts[:y].nil?
-                 Array(self[opts[:y]])
+                 ys_before_format = self[*Array(opts[:y])]
+                 if ys_before_format.is_a?(Daru::DataFrame)
+                   ys_before_format.to_a
+                 else # when Daru::Vector
+                   [ys_before_format.to_a]
+                 end
                else
                  [self[:y].to_a]
                end
