@@ -4,6 +4,8 @@ module Daru
   module Plotting
     module DataFrame
       module PlotlyLibrary
+        include ::Plotly
+
         def plot opts={}
           type = opts[:type] || :scatter
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
@@ -21,8 +23,7 @@ module Daru
                  [self[:y].to_a]
                end
           data = ys.map { |y| { x: x, y: y, type: type, mode: mode } }
-
-          plot = Plotly::Plot.new(data: data, layout: layout)
+          plot = Plot.new(data: data, layout: layout)
           plot.show
           yield plot if block_given?
           plot
