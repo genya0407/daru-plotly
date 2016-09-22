@@ -5,7 +5,7 @@ require 'daru_plotting_plotly/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "daru_plotting_plotly"
-  spec.version       = Daru::Plotly::VERSION
+  spec.version       = Daru::Plotting::Plotly::VERSION
   spec.authors       = ["Yusuke Sangenya"]
   spec.email         = ["longinus.eva@gmail.com"]
 
