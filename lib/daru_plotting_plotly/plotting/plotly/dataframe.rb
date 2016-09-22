@@ -9,11 +9,11 @@ module Daru
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
           mode = opts[:mode] || :'lines+markers'
 
-          x = self[opts[:x] || :x]
+          x = self[opts[:x] || :x].to_a
           ys = if !opts[:y].nil?
                  Array(self[opts[:y]])
                else
-                 [self[:y]]
+                 [self[:y].to_a]
                end
           data = ys.map { |y| { x: x, y: y, type: type, mode: mode } }
 
