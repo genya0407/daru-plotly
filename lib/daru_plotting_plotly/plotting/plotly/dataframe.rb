@@ -7,7 +7,7 @@ module Daru
         def plot opts={}
           type = opts[:type] || :scatter
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
-          mode = opts[:mode] || 'line+markers'
+          mode = opts[:mode] || :'lines+markers'
 
           x = self[opts[:x] || :x]
           ys = if !opts[:y].nil?
