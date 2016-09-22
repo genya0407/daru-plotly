@@ -10,7 +10,7 @@
 
 *.swp
 .ipython/
-*.ipynb
+.ipynb_checkpoints/
 .viminfo
 .local
 .bash_history
