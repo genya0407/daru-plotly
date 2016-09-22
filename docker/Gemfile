@@ -1,7 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'nyaplot'
-gem 'daru'
-
-gem 'rbczmq'
-gem 'iruby'
