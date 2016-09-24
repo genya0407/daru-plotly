@@ -8,7 +8,7 @@ module Daru
 
         def plot opts={}
           data = generate_data opts
-          layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
+          layout = { width: (opts[:width] || 1000), height: (opts[:height] || 500) }
 
           plot = Plot.new(data: data, layout: layout)
           yield plot if block_given?
