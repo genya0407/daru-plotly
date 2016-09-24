@@ -11,9 +11,8 @@ module Daru
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
 
           plot = Plot.new(data: data, layout: layout)
-          plot.show
           yield plot if block_given?
-          plot
+          plot.show
         end
 
         def extract_type plot_type
