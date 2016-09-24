@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rbczmq"
   spec.add_development_dependency "iruby"
   spec.add_development_dependency "spreadsheet"
+  spec.add_development_dependency "nyaplot"
+  spec.add_development_dependency "gruff"
 end
