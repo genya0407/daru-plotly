@@ -14,7 +14,7 @@ ADD daru_plotting_plotly.gemspec /tmp
 RUN mkdir -p /tmp/lib/daru_plotting_plotly
 ADD lib/daru_plotting_plotly/version.rb /tmp/lib/daru_plotting_plotly
 RUN bundle install
-RUN sed -i -e "s/ArguementError/ArgumentError/g" /usr/local/bundle/gems/daru-0.1.4.1/lib/daru/dataframe.rb
+RUN find /usr/local/bundle/gems/daru-0.1.4.1/lib/daru/ -name "*.rb" | xargs sed -i -e "s/ArguementError/ArgumentError/g"
 
 WORKDIR /root
 EXPOSE 8888
