@@ -9,7 +9,7 @@ module Daru
         def plot opts={}
           type = opts[:type] || :scatter
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
-          mode = opts[:mode] || :'lines+markers'
+          mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
 
           x = self[opts[:x] || :x].to_a
           data = self[*Array(opts[:y] || :y)].to_df.map do |vector|
