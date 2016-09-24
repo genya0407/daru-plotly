@@ -16,24 +16,33 @@ module Daru
         end
 
         def extract_type plot_type
+          supported_types = [:scatter, :bar, :pie]
+
           case plot_type
-          when :scatter, :bar
+          when *supported_types
             plot_type
           when nil
             :scatter
           else
-            raise ArgumentError, 'daru_plotting_plotly currently supports only :scatter and :bar as plot type.'
+            raise ArgumentError, "Type must be included in #{supported_types}"
           end
         end
 
         def generate_data opts
-          type = extract_type opts[:type]
-          mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
-          x = self[opts[:x] || :x].to_a
-          self[*Array(opts[:y] || :y)].to_df.map do |vector|
-            {
-              x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
-            }
+          case type = extract_type(opts[:type])
+          when :pie
+            labels = self[opts[:labels] || :labels].to_a
+            values = self[opts[:values] || :values].to_a
+            [{ labels: labels, values: values, type: :pie }]
+          else
+            x = self[opts[:x] || :x].to_a
+            ys = self[*Array(opts[:y] || :y)].to_df
+            mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
+            ys.map do |vector|
+              {
+                x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
+              }
+            end
           end
         end
       end
