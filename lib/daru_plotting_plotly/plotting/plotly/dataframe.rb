@@ -7,16 +7,8 @@ module Daru
         include ::Plotly
 
         def plot opts={}
-          type = extract_type opts[:type]
+          data = generate_data opts
           layout = { width: (opts[:width] || 500), height: (opts[:height] || 500) }
-          mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
-
-          x = self[opts[:x] || :x].to_a
-          data = self[*Array(opts[:y] || :y)].to_df.map do |vector|
-            {
-              x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
-            }
-          end
 
           plot = Plot.new(data: data, layout: layout)
           plot.show
@@ -32,6 +24,17 @@ module Daru
             :scatter
           else
             raise ArgumentError, 'daru_plotting_plotly currently supports only :scatter and :bar as plot type.'
+          end
+        end
+
+        def generate_data opts
+          type = extract_type opts[:type]
+          mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
+          x = self[opts[:x] || :x].to_a
+          self[*Array(opts[:y] || :y)].to_df.map do |vector|
+            {
+              x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
+            }
           end
         end
       end
