@@ -7,7 +7,7 @@ module Daru
         include ::Plotly
 
         def plot opts={}
-          data = generate_data opts
+          data = opts[:data] || generate_data opts
           layout = { width: (opts[:width] || 1000), height: (opts[:height] || 500) }
 
           plot = Plot.new(data: data, layout: layout)
@@ -37,7 +37,7 @@ module Daru
           else
             x = self[opts[:x] || :x].to_a
             ys = self[*Array(opts[:y] || :y)].to_df
-            mode = (Array(opts[:mode]) || [:lines, :markers]).map(&:to_s).join('+')
+            mode = (Array(opts[:mode]) || [:markers, :lines]).map(&:to_s).join('+')
             ys.map do |vector|
               {
                 x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
