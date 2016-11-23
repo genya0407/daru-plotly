@@ -15,3 +15,4 @@
 .local
 .bash_history
 .jupyter/
+*.gem

@@ -7,12 +7,12 @@ module Daru
         include ::Plotly
 
         def plot opts={}
-          data = opts[:data] || generate_data opts
-          layout = { width: (opts[:width] || 1000), height: (opts[:height] || 500) }
+          data = opts[:data] || generate_data(opts)
+          layout = { width: (opts[:width] || 1000), height: (opts[:height] || 500) }.merge(opts[:layout] || {})
 
           plot = Plot.new(data: data, layout: layout)
           yield plot if block_given?
-          plot.show
+          plot
         end
 
         def extract_type plot_type
@@ -37,7 +37,7 @@ module Daru
           else
             x = self[opts[:x] || :x].to_a
             ys = self[*Array(opts[:y] || :y)].to_df
-            mode = (Array(opts[:mode]) || [:markers, :lines]).map(&:to_s).join('+')
+            mode = (Array(opts[:mode]) || [:markers]).map(&:to_s).join('+')
             ys.map do |vector|
               {
                 x: x, y: vector.to_a, type: type, mode: mode, name: vector.name

@@ -12,7 +12,7 @@ module Daru
 
           plot = Plot.new(data: data, layout: layout)
           yield plot if block_given?
-          plot.show
+          plot
         end
 
         def extract_type plot_type
