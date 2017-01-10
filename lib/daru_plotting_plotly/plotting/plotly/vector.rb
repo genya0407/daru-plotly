@@ -33,11 +33,11 @@ module Daru
           
           case type
           when :histogram
-            [{ x: to_a, type: :histogram}]
+            [{ x: to_a, type: :histogram }.merge(opts[:opts] || {})]
           when :scatter, :bar
-            [{ x: index.to_a, y: to_a, type: type, mode: :'markers' }]
+            [{ x: index.to_a, y: to_a, type: type, mode: :'markers' }.merge(opts[:opts] || {})]
           when :pie
-            [{ labels: index.to_a, values: to_a, type: :pie }]
+            [{ labels: index.to_a, values: to_a, type: :pie }.merge(opts[:opts] || {})]
           end
         end
       end
