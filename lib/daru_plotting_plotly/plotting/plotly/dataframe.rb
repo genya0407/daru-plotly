@@ -33,7 +33,7 @@ module Daru
           when :pie
             labels = self[opts[:labels] || :labels].to_a
             values = self[opts[:values] || :values].to_a
-            [{ labels: labels, values: values, type: :pie }]
+            [{ labels: labels, values: values, type: :pie }.merge(opts[:opts] || {})]
           else
             x = self[opts[:x] || :x].to_a
             ys = self[*Array(opts[:y] || :y)].to_df
@@ -41,7 +41,7 @@ module Daru
             ys.map do |vector|
               {
                 x: x, y: vector.to_a, type: type, mode: mode, name: vector.name
-              }
+              }.merge(opts[:opts] || {})
             end
           end
         end
