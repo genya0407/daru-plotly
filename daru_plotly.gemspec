@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'daru_plotting_plotly/version'
+require 'version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "daru_plotting_plotly"
-  spec.version       = Daru::Plotting::Plotly::VERSION
+  spec.name          = "daru_plotly"
+  spec.version       = Daru::Plotly::VERSION
   spec.authors       = ["Yusuke Sangenya"]
   spec.email         = ["longinus.eva@gmail.com"]
 
