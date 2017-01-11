@@ -30,8 +30,8 @@ module Daru::Plotly
       def self.generate_data(df, opts)
         case type = extract_type(opts[:type])
         when :pie
-          labels = self[opts[:labels] || :labels].to_a
-          values = self[opts[:values] || :values].to_a
+          labels = df[opts[:labels] || :labels].to_a
+          values = df[opts[:values] || :values].to_a
           [{ labels: labels, values: values, type: :pie }.merge(opts[:opts] || {})]
         else
           x = df[opts[:x] || :x].to_a
