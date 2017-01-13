@@ -4,7 +4,7 @@
 
 This gem connects [Rbplotly](https://github.com/ash1day/rbplotly) with [Daru](https://github.com/SciRuby/daru).
 
-This gem is under development.
+Ruby version should be >= 2.3
 
 # usage
 
