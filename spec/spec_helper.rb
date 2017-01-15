@@ -1,3 +1,4 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'daru/dataframe'
-require 'daru/plotting/plotly'
+require 'daru'
+require 'daru_plotly'
+require 'rbplotly'
