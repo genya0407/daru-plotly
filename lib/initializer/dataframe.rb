@@ -15,7 +15,7 @@ module Daru::Plotly
       end
 
       def self.extract_type(plot_type)
-        supported_types = [:scatter, :bar, :pie]
+        supported_types = [:scatter, :bar, :pie, :heatmap]
 
         case plot_type
         when *supported_types
@@ -33,6 +33,13 @@ module Daru::Plotly
           labels = df[opts[:labels] || :labels].to_a
           values = df[opts[:values] || :values].to_a
           [{ labels: labels, values: values, type: :pie }.merge(opts[:opts] || {})]
+        when :heatmap
+          [{
+            z: df.data.map { |vector| vector.to_a }.transpose,
+            x: df.vectors.to_a,
+            y: df.index.to_a,
+            type: type
+          }]
         else
           x = df[opts[:x] || :x].to_a
           mode = (Array(opts[:mode]) || [:markers]).map(&:to_s).join('+')
