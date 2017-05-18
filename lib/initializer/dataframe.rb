@@ -20,6 +20,8 @@ module Daru::Plotly
         case plot_type
         when *supported_types
           plot_type
+        when :histogram
+          raise ArgumentError, 'You can plot histogram only with Daru::Vector, not Daru::DataFrame.'
         when nil
           :scatter
         else
