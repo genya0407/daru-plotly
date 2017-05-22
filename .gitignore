@@ -16,3 +16,5 @@
 .bash_history
 .jupyter/
 *.gem
+
+/vendor

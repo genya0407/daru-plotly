@@ -11,25 +11,25 @@ describe Daru::Plotly do
 
   describe 'specific initializers' do
     it 'DataFrame' do
-      d = Daru::Plotly::Initializer::DataFrame.plot(df, df_opts).data[0]
-      expect({ x: d.x, y: d.y }).to eq data
+      d = Daru::Plotly::DataFrame.plot(df, df_opts).data[0]
+      expect(x: d.x, y: d.y).to eq data
     end
 
     it 'Vector' do
-      d = Daru::Plotly::Initializer::Vector.plot(vect, vect_opts).data[0]
-      expect({ x: d.x, y: d.y }).to eq data
+      d = Daru::Plotly::Vector.plot(vect, vect_opts).data[0]
+      expect(x: d.x, y: d.y).to eq data
     end
   end
 
   describe 'infer argument\'s class' do
     it 'DataFrame' do
-      d = Daru::Plotly::Initializer.plot(df, df_opts).data[0]
-      expect({ x: d.x, y: d.y }).to eq data
+      d = Daru::Plotly.plot(df, df_opts).data[0]
+      expect(x: d.x, y: d.y).to eq data
     end
 
     it 'Vector' do
-      d = Daru::Plotly::Initializer.plot(vect, vect_opts).data[0]
-      expect({ x: d.x, y: d.y }).to eq data
+      d = Daru::Plotly.plot(vect, vect_opts).data[0]
+      expect(x: d.x, y: d.y).to eq data
     end
   end
 end
