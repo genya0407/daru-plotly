@@ -29,4 +29,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "spreadsheet"
   spec.add_development_dependency "nyaplot"
   spec.add_development_dependency "gruff"
+
+  spec.post_install_message = <<-MESSAGE
+  !    The 'daru_plotly' gem has been deprecated and has been replaced by 'daru-plotly'.
+  !    See: https://rubygems.org/gems/daru-plotly
+  !    And: https://github.com/genya0407/daru-plotly
+  MESSAGE
 end
